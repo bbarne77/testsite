@@ -1,3 +1,4 @@
+/* ===== GLOBAL BASE ===== */
 html, body {
   width: 100%;
   height: 100%;
@@ -10,6 +11,7 @@ html, body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   scroll-behavior: smooth;
 }
+
 /* ===== SECTION TITLE ===== */
 .section-title {
     margin-top: 72px;
@@ -27,7 +29,6 @@ html, body {
     color: #ffffff;
     background: rgba(0, 0, 0, 0.4);
     letter-spacing: 0.5px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(4px);
 }
@@ -47,9 +48,7 @@ html, body {
     opacity: 0;
     animation-delay: 0.2s;
 }
-.card-scroll::-webkit-scrollbar {
-    display: none;
-}
+.card-scroll::-webkit-scrollbar { display: none; }
 
 /* ===== CARD ===== */
 .card {
@@ -74,8 +73,6 @@ html, body {
     transform: translateY(-3px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
 }
-
-/* ===== CARD STRUCTURE ===== */
 .card-content-wrapper {
     display: flex;
     flex-direction: column;
@@ -115,9 +112,7 @@ html, body {
     min-height: 80px;
     max-height: 80px;
 }
-.card-content p {
-    font-weight: 500;
-}
+.card-content p { font-weight: 500; }
 .card-footer {
     display: flex;
     align-items: center;
@@ -143,25 +138,8 @@ html, body {
     text-decoration: none;
     transition: transform 0.2s ease;
 }
-.card-btn svg {
-    width: 16px;
-    height: 16px;
-}
-.card-btn:active {
-    transform: scale(0.96);
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeInUp {
-    0% {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
+.card-btn svg { width: 16px; height: 16px; }
+.card-btn:active { transform: scale(0.96); }
 
 /* ===== INFO BANNER ===== */
 .info-banner {
@@ -174,14 +152,9 @@ html, body {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
     text-align: center;
     color: #e3faff;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     animation: fadeInUp 1s ease forwards;
 }
-.icon-carousel-container {
-    width: 100%;
-    max-height: 80px;
-    overflow: hidden;
-}
+.icon-carousel-container { width: 100%; max-height: 80px; overflow: hidden; }
 .icon-carousel-inner {
     display: flex;
     animation: scroll-icons 60s linear infinite;
@@ -227,22 +200,75 @@ html, body {
     background: linear-gradient(135deg, #00ff99, #00c6ff);
     box-shadow: 0 4px 10px rgba(0, 255, 153, 0.25);
 }
-.info-btn:active {
-    transform: scale(0.96);
+.info-btn:active { transform: scale(0.96); }
+
+/* ===== VPN SECTION ===== */
+.vpn-section {
+    width: 90%;
+    max-width: 420px;
+    margin: 40px auto;
+    padding: 18px 20px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(0, 50, 100, 0.4), rgba(0, 0, 0, 0.6));
+    backdrop-filter: blur(14px);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    animation: fadeInUp 1.2s ease-out forwards;
 }
-.info-banner-image {
-    width: 150px;
-    height: auto;
-    display: block;
-    margin: 0 auto 16px;
-    border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-    animation: fadeInUp 0.8s ease-out forwards;
-    opacity: 0;
+.vpn-section h3 {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: #4fd8ff;
+    margin-bottom: 8px;
+    text-shadow: 0 0 10px rgba(79, 216, 255, 0.4);
+}
+.vpn-section p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #d5eaff;
+    text-align: center;
+    margin: 6px 0;
+}
+.vpn-section .vpn-prices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+.vpn-section .vpn-prices div {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-weight: 600;
+    color: #00ff99;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+.vpn-section .vpn-prices div:hover {
+    background: rgba(0, 255, 153, 0.15);
+    transform: scale(1.05);
+}
+.vpn-section .vpn-link {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #4fd8ff;
+    text-align: center;
+    transition: opacity 0.2s ease;
+}
+.vpn-section .vpn-link:hover { opacity: 0.8; }
+
+@keyframes fadeInUp {
+  0% { transform: translateY(30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 @keyframes scroll-icons {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 /* ===== HELP BUBBLE ===== */
 .help-bubble {
@@ -397,7 +423,6 @@ html, body {
 .info-modal-close-btn:focus {
     color: #fff;
     transform: rotate(90deg);
-    text-decoration: none;
 }
 @keyframes modalFadeIn {
     from { opacity: 0; transform: translateY(-20px); }
