@@ -2,14 +2,20 @@ html, body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  overflow-y: auto; /* ✅ теперь сайт скроллится */
+  overflow-y: auto; /* ✅ сайт снова скроллится */
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle at top, #000010 0%, #000 80%);
+
+  /* 🌤 Светлый неоновый фон URSA Glass */
+  background: radial-gradient(circle at top, #f8fbff 0%, #e8f6ff 35%, #d2f2ff 100%);
+  background-attachment: fixed;
+  backdrop-filter: blur(8px);
+
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: #fff;
+  color: #0b0f16;
 }
 
+/* ---------- Разделы ---------- */
 .section-title {
   margin-top: 72px;
   text-align: center;
@@ -19,15 +25,16 @@ html, body {
 .section-title h2 {
   display: inline-block;
   padding: 8px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 12px;
   font-size: 22px;
   font-weight: 600;
-  color: #ffffff;
-  background: rgba(0, 0, 0, 0.4);
+  color: #0b0f16;
+  background: rgba(255, 255, 255, 0.7);
   letter-spacing: 0.5px;
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(4px);
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .card-scroll {
