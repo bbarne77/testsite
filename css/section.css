@@ -1,7 +1,11 @@
-/* ===================== */
-/* 🎨 ОСНОВНЫЕ СЕКЦИИ UI */
-/* ===================== */
+html, body {
+  overflow-y: auto !important;
+  height: auto !important;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
 
+/* === Заголовок секции === */
 .section-title {
   margin-top: 72px;
   text-align: center;
@@ -17,16 +21,11 @@
   font-weight: 600;
   color: #ffffff;
   background: rgba(0, 0, 0, 0.4);
-  letter-spacing: 0.5px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(4px);
 }
 
-/* ===================== */
-/* 💳 СЕРТИФИКАТЫ        */
-/* ===================== */
-
+/* === Карточки сертификатов === */
 .card-scroll {
   margin-top: 20px;
   padding-left: 24px;
@@ -34,12 +33,10 @@
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-padding-left: 24px;
   gap: 16px;
   -webkit-overflow-scrolling: touch;
   animation: fadeInUp 1.3s ease-out forwards;
   opacity: 0;
-  animation-delay: 0.2s;
 }
 .card-scroll::-webkit-scrollbar {
   display: none;
@@ -59,20 +56,18 @@
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2),
               inset 0 0 8px rgba(255, 255, 255, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
   color: #fff;
 }
 .card-content-wrapper {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   justify-content: flex-start;
 }
 .card-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
   margin-bottom: 8px;
   position: relative;
 }
@@ -88,21 +83,14 @@
   font-weight: 600;
   margin: 0;
   white-space: nowrap;
-  text-align: center;
 }
 .card-content {
   text-align: center;
   font-size: 14.5px;
   line-height: 1.5;
-  margin: 0;
-  padding: 8px 10px 12px;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 6px;
-  min-height: 80px;
-  max-height: 80px;
-}
-.card-content p {
-  font-weight: 500;
+  padding: 8px 10px 12px;
 }
 .card-footer {
   display: flex;
@@ -121,27 +109,18 @@
   gap: 6px;
   padding: 8px 16px;
   background: linear-gradient(135deg, #00c6ff, #0072ff);
-  border: none;
   border-radius: 8px;
   color: #fff;
   font-size: 14.5px;
   font-weight: 500;
   text-decoration: none;
   transition: transform 0.2s ease;
-  box-shadow: 0 0 12px rgba(0, 198, 255, 0.25);
-}
-.card-btn svg {
-  width: 16px;
-  height: 16px;
 }
 .card-btn:active {
   transform: scale(0.96);
 }
 
-/* ===================== */
-/* 🌐 VPN-ПОДКЛЮЧЕНИЕ   */
-/* ===================== */
-
+/* === VPN блок === */
 .vpn-section {
   margin: 40px auto;
   padding: 24px 16px;
@@ -153,8 +132,6 @@
   box-shadow: 0 0 25px rgba(0, 198, 255, 0.2);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  animation: fadeInUp 1s ease-out forwards;
-  opacity: 0;
 }
 .vpn-header h2 {
   font-size: 24px;
@@ -180,10 +157,8 @@
   border-radius: 14px;
   padding: 16px 20px;
   min-width: 140px;
-  max-width: 160px;
   text-align: center;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: inset 0 0 8px rgba(0, 255, 255, 0.15);
 }
 .vpn-card:hover {
   transform: translateY(-5px);
@@ -204,37 +179,46 @@
   display: inline-block;
   padding: 8px 16px;
   background: linear-gradient(135deg, #00c6ff, #0072ff);
-  color: #fff !important;
+  color: #fff;
   border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
   font-size: 15px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 0 10px rgba(0, 198, 255, 0.25);
-}
-.vpn-btn:hover {
-  box-shadow: 0 0 16px rgba(0, 255, 255, 0.4);
+  transition: transform 0.2s ease;
 }
 .vpn-btn:active {
   transform: scale(0.96);
 }
 
-/* ===================== */
-/* 💬 ПРОЧИЕ ЭЛЕМЕНТЫ   */
-/* ===================== */
-
-@keyframes fadeInUp {
-  0% {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0px);
-    opacity: 1;
-  }
+/* === Кнопка помощи === */
+.help-bubble {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(79, 216, 255, 0.4);
+  box-shadow: 0 0 10px rgba(79, 216, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.help-bubble:hover {
+  transform: scale(1.05);
+}
+.question-mark {
+  color: #4fd8ff;
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 0 0 6px #4fd8ff;
 }
 
-/* ===== Футер ===== */
+/* === Футер === */
 .site-footer {
   width: 100%;
   height: 36px;
@@ -247,6 +231,17 @@
   font-size: 13px;
   font-weight: 500;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
-  margin-top: -10px;
+  margin-top: 40px;
+}
+
+/* === Анимация === */
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
