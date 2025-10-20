@@ -1,3 +1,15 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* запрет горизонтального скролла */
+    overflow-y: auto;   /* ✅ разрешаем вертикальный скролл */
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: radial-gradient(circle at top, #000010 0%, #000 80%);
+}
+
+/* ====== ТИТУЛ ====== */
 .section-title {
     margin-top: 72px;
     text-align: center;
@@ -14,10 +26,11 @@
     color: #ffffff;
     background: rgba(0, 0, 0, 0.4);
     letter-spacing: 0.5px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(4px);
 }
+
+/* ====== КАРТОЧКИ ====== */
 .card-scroll {
     margin-top: 20px;
     padding-left: 24px;
@@ -78,7 +91,6 @@
     font-weight: 600;
     margin: 0;
     white-space: nowrap;
-    text-align: center;
 }
 .card-content {
     text-align: center;
@@ -89,7 +101,6 @@
     background: rgba(0, 0, 0, 0.2);
     border-radius: 6px;
     min-height: 80px;
-    max-height: 80px;
 }
 .card-content p {
     font-weight: 500;
@@ -126,16 +137,20 @@
 .card-btn:active {
     transform: scale(0.96);
 }
+
+/* ====== АНИМАЦИИ ====== */
 @keyframes fadeInUp {
     0% {
         transform: translateY(30px);
         opacity: 0;
     }
     100% {
-        transform: translateY(0px);
+        transform: translateY(0);
         opacity: 1;
     }
 }
+
+/* ====== ИНФО-БАННЕР ====== */
 .info-banner {
     max-width: 110%;
     margin: 20px auto;
@@ -146,7 +161,6 @@
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
     text-align: center;
     color: #e3faff;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     animation: fadeInUp 1s ease forwards;
 }
 .icon-carousel-container {
@@ -166,17 +180,15 @@
     flex-shrink: 0;
     border-radius: 12px;
 }
+@keyframes scroll-icons {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
 .info-banner .info-text {
     font-size: 16.5px;
     line-height: 1.6;
     margin-bottom: 14px;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-}
-.info-text-container {
-    padding: 8px 10px 12px;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    margin-bottom: 14px;
 }
 .info-buttons {
     display: flex;
@@ -188,22 +200,21 @@
     padding: 10px 20px;
     background: linear-gradient(135deg, #00c6ff, #0072ff);
     color: #fff;
-    text-decoration: none;
     border-radius: 8px;
     font-size: 15px;
     font-weight: 600;
+    text-decoration: none;
     transition: transform 0.2s ease;
     box-shadow: 0 4px 10px rgba(0, 198, 255, 0.25);
 }
 .info-btn.alt {
     background: linear-gradient(135deg, #00ff99, #00c6ff);
-    box-shadow: 0 4px 10px rgba(0, 255, 153, 0.25);
 }
 .info-btn:active {
     transform: scale(0.96);
 }
 
-/* ====================== VPN SECTION ====================== */
+/* ====== VPN ====== */
 .vpn-section {
     margin: 60px 20px 40px;
     padding: 20px;
@@ -247,7 +258,6 @@
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.08);
     color: #e3faff;
     font-size: 15px;
     transition: transform 0.2s ease, background 0.2s ease;
@@ -280,19 +290,19 @@
     box-shadow: 0 0 16px rgba(0, 198, 255, 0.5);
 }
 
-/* ===== Футер ===== */
+/* ====== ФУТЕР ====== */
 .site-footer {
-  width: 100%;
-  height: 36px;
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(6px);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 500;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
-  margin-top: -10px;
+    width: 100%;
+    height: 36px;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    margin-top: 40px;
 }
