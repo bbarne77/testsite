@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>iPAWORLD</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/section.css" />
+  <script defer src="js/section.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <img src="https://raw.githubusercontent.com/viibbee/Info/main/IMG_5409.PNG" class="logo-img" alt="logo" />
+      <span class="logo-text">iPAWORLD</span>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+    <!-- ===== СЕРТИФИКАТЫ ===== -->
+    <section class="section-title">
+      <h2>Сертификаты</h2>
+    </section>
+
+    <section class="card-scroll" id="cert-section">
+      <!-- карточки как раньше -->
+      <div class="card">
+        <div class="card-content-wrapper">
+          <div class="card-header"><h3>Моментальный</h3></div>
+          <div class="card-content">
+            <p>Срок изготовления до 5 минут<br>Работает со всеми iPA<br>Нет ограничений по Моделям</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-price">1499₽</span>
+          <a href="#" class="card-btn" data-modal="buy"
+             data-title="Моментальный сертификат"
+             data-description="Срок изготовления до 5 минут. Работает со всеми iPA. Нет ограничений по Моделям. Для 1 устройства"
+             data-link="https://t.me/m/QYAMgf9eY2Fi">Купить</a>
+        </div>
+      </div>
+      <!-- ... остальные сертификаты как в оригинале ... -->
+    </section>
+
+    <!-- ===== VPN ===== -->
+    <section class="section-title">
+      <h2>VPN</h2>
+    </section>
+
+    <section class="vpn-section">
+      <div class="vpn-info">
+        <p><strong>1 месяц</strong></p>
+        <ul>
+          <li>Регион: Германия 🇩🇪</li>
+          <li>Скорость до 70 Мб/с</li>
+          <li>Поддержка 24/7</li>
+        </ul>
+        <p class="vpn-subtitle">Выберите подходящий тариф:</p>
+      </div>
+
+      <div class="vpn-card-container">
+        <div class="vpn-card">
+          <h3>1 месяц</h3>
+          <p>199₽</p>
+          <a href="#" class="card-btn" data-modal="buy"
+             data-title="VPN — 1 месяц"
+             data-description="Регион: Германия 🇩🇪. Скорость до 70 Мб/с. Поддержка 24/7."
+             data-link="https://t.me/m/VPN1">Купить</a>
+        </div>
+
+        <div class="vpn-card">
+          <h3>3 месяца</h3>
+          <p>449₽</p>
+          <a href="#" class="card-btn" data-modal="buy"
+             data-title="VPN — 3 месяца"
+             data-description="Регион: Германия 🇩🇪. Скорость до 70 Мб/с. Поддержка 24/7."
+             data-link="https://t.me/m/VPN3">Купить</a>
+        </div>
+
+        <div class="vpn-card">
+          <h3>6 месяцев</h3>
+          <p>699₽</p>
+          <a href="#" class="card-btn" data-modal="buy"
+             data-title="VPN — 6 месяцев"
+             data-description="Регион: Германия 🇩🇪. Скорость до 70 Мб/с. Поддержка 24/7."
+             data-link="https://t.me/m/VPN6">Купить</a>
+        </div>
+
+        <div class="vpn-card">
+          <h3>12 месяцев</h3>
+          <p>1399₽</p>
+          <a href="#" class="card-btn" data-modal="buy"
+             data-title="VPN — 12 месяцев"
+             data-description="Регион: Германия 🇩🇪. Скорость до 70 Мб/с. Поддержка 24/7."
+             data-link="https://t.me/m/VPN12">Купить</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- === Инфо баннер и футер как в старой версии === -->
+    <section class="info-banner">
+      <p class="info-text">
+        Наш телеграм канал предоставляет <strong>корпоративные сертификаты</strong> и VPN-сервисы!<br>
+        Больше новостей на нашем канале.
+      </p>
+      <div class="info-buttons">
+        <a href="https://t.me/ipaworldd" class="info-btn">Канал Telegram</a>
+        <a href="https://t.me/IPAworldGroup/13" class="info-btn alt">Отзывы</a>
+      </div>
+    </section>
+
+    <!-- Модалка покупки -->
+    <div id="buyModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h3 class="modal-title"></h3>
+        <p class="modal-description"></p>
+        <div class="modal-footer">
+          <button class="modal-btn cancel-btn">Отмена</button>
+          <a href="#" class="modal-btn confirm-btn">Подтвердить</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 iPAWORLD</p>
+  </footer>
+</body>
+</html>
