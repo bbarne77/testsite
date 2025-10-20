@@ -80,7 +80,10 @@ helpMenuButtons.forEach(btn => {
   });
 });
 
-infoModalCloseBtn.addEventListener('click', closeModal);
+if (infoModalCloseBtn) {
+  infoModalCloseBtn.addEventListener('click', closeModal);
+}
+
 window.addEventListener('click', (e) => {
   if (e.target === infoModal) closeModal();
 });
@@ -146,6 +149,11 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 
 cards.forEach(c => observer.observe(c));
+
+// === ✅ Safari Fix: если observer не сработал — показываем карточки вручную ===
+setTimeout(() => {
+  cards.forEach(c => c.classList.add('visible'));
+}, 800);
 
 // === 🌀 Автопрокрутка иконок (если есть баннер) ===
 const iconCarousel = document.querySelector('.icon-carousel-inner');
