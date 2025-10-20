@@ -1,4 +1,4 @@
-/* ======== СБРОС ======== */
+/* ========== СБРОС И БАЗА ========== */
 * {
   margin: 0;
   padding: 0;
@@ -9,27 +9,35 @@ html, body {
   height: 100%;
   width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: radial-gradient(circle at top center, #002b80 0%, #001f3f 30%, #000c20 100%);
-  background-attachment: fixed;
   color: #fff;
-  overflow-x: hidden;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-/* ======== HEADER ======== */
+/* ========== ФОН ========== */
+body {
+  background: linear-gradient(135deg, #001a33 0%, #003366 50%, #004080 100%);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ========== HEADER ========== */
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
+  height: 56px;
   background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0, 191, 255, 0.08);
 }
 
 .header-content {
@@ -40,125 +48,109 @@ html, body {
 }
 
 .logo-img {
-  height: 36px;
-  width: 36px;
+  height: 34px;
+  width: 34px;
   border-radius: 8px;
   object-fit: cover;
+  filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.4));
 }
 
 .logo-text {
   font-size: 20px;
   font-weight: 700;
-  letter-spacing: 0.8px;
   background: linear-gradient(90deg, #00bfff, #1e90ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 12px rgba(0, 191, 255, 0.7);
-  animation: glowText 2s ease-in-out infinite;
+  text-shadow: 0 0 8px rgba(30, 144, 255, 0.6);
+  letter-spacing: 0.5px;
+  animation: pulseGlow 2s ease-in-out infinite;
 }
 
-@keyframes glowText {
-  0%, 100% { text-shadow: 0 0 8px rgba(0, 255, 255, 0.4); }
-  50% { text-shadow: 0 0 18px rgba(0, 255, 255, 1); }
+/* Анимация мягкого свечения логотипа */
+@keyframes pulseGlow {
+  0%, 100% { text-shadow: 0 0 8px rgba(0, 191, 255, 0.4); }
+  50% { text-shadow: 0 0 16px rgba(0, 191, 255, 0.8); }
 }
 
-/* ======== MAIN ======== */
+/* ========== MAIN ========== */
 .main-content {
-  padding-top: 80px; /* чтобы не налезало на хедер */
+  padding-top: 72px;
   padding-bottom: 60px;
   width: 100%;
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
-/* ======== INFO-BANNER ======== */
-.info-banner {
-  margin: 40px auto;
-  max-width: 520px;
-  text-align: center;
-  padding: 20px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.07);
-  box-shadow: 0 0 14px rgba(0, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-}
-.info-banner .info-text {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 14px;
-}
-.info-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.info-btn {
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 10px;
-  padding: 10px 20px;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 10px rgba(0, 198, 255, 0.25);
-}
-.info-btn.alt {
-  background: linear-gradient(135deg, #00ff99, #00c6ff);
-  box-shadow: 0 4px 10px rgba(0, 255, 153, 0.25);
-}
-.info-btn:hover { transform: scale(1.03); }
-.info-btn:active { transform: scale(0.96); }
-
-/* ======== HELP BUBBLE ======== */
-.help-bubble {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(79, 216, 255, 0.4);
-  box-shadow: 0 0 10px rgba(79, 216, 255, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 999;
-  animation: floatBubble 1.8s ease-in-out infinite;
-}
-.question-mark {
-  color: #4fd8ff;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 0 0 8px #4fd8ff, 0 0 18px #4fd8ff;
-}
-@keyframes floatBubble {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-/* ======== FOOTER ======== */
+/* ========== FOOTER ========== */
 .site-footer {
   width: 100%;
   height: 40px;
   background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 13px;
   font-weight: 500;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 50px;
+  letter-spacing: 0.3px;
+  text-shadow: 0 0 4px rgba(0, 191, 255, 0.3);
+  margin-top: 40px;
 }
 
-/* ======== MOBILE ======== */
+/* ========== СКРОЛЛ ========== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #00bfff, #0072ff);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #00cfff, #0099ff);
+}
+
+/* ========== АНИМАЦИИ ========== */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollIcons {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ========== МЕДИА ========== */
 @media (max-width: 480px) {
-  .main-content { padding-top: 70px; }
   .logo-text { font-size: 18px; }
-  .info-banner { width: 90%; }
-  .vpn-card, .card { min-width: 90%; }
+  .logo-img { height: 30px; width: 30px; }
+  .main-content { padding-top: 64px; padding-bottom: 80px; }
+  .section-title h2 { font-size: 20px; }
+  .card, .vpn-card { min-width: 250px; }
+  .vpn-info, .vpn-tariffs { max-width: 90%; }
+  .info-btn { font-size: 14px; padding: 8px 14px; }
+}
+
+/* ========== ОБЩИЕ ЭФФЕКТЫ ========== */
+.glow-border {
+  border: 1px solid rgba(0, 191, 255, 0.25);
+  box-shadow: 0 0 12px rgba(0, 191, 255, 0.15);
+}
+
+.blur-bg {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
 }
