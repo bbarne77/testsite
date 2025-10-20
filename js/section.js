@@ -10,34 +10,76 @@ const infoModalCloseBtn = document.querySelector('.info-modal-close-btn');
 
 // === 🧩 Контент для модальных окон ===
 const infoContent = {
-  certificate: {
+  'certificate': {
     title: '🔐 Что такое Сертификат?',
     text: `
-      Сертификат — это цифровая подпись, позволяющая вашему <strong>iOS-устройству</strong>
-      безопасно устанавливать <strong>IPA-приложения</strong> без App Store.<br><br>
+      Сертификат — это специальное программное обеспечение для вашего <strong>iOS-устройства</strong>, 
+      которое открывает доступ к установке <strong>сторонних приложений и игр</strong> 
+      из альтернативных источников, помимо App Store.<br><br>
+      Вы можете <strong>безопасно</strong> загружать нужные вам приложения:<br>
       <ul>
-        <li>📲 Безопасная установка сторонних игр и программ</li>
-        <li>🛡️ Полная защита данных и устройства</li>
-        <li>⚙️ Совместимость со всеми моделями</li>
+        <li>📲 не нарушая при этом никаких <strong>правил</strong> и <strong>законов</strong>;</li>
+        <li>🛡️ сохраняя <strong>полную безопасность</strong> ваших данных и устройства.</li>
       </ul>
+      Это надежный способ получить больше свободы без риска!
     `
   },
-  warranty: {
+  'get-certificate': {
+    title: '📦 Инструкция по установке сертификата',
+    text: `
+      <div class="step-container">
+        <div class="step" data-step-id="1">
+          <strong>Как получить сертификат в боте.</strong>
+          <p>Отправляете <strong>/start</strong> боту. Нажимаете на кнопку "Проверить UDID". 
+          После сообщения "Отправьте UDID", отправляете свой UDID, указанный при оплате сертификата. 
+          Затем выбираете "Получить сертификат [Имя сертификата]". 
+          Бот пришлет два файла — <strong>P12</strong> и <strong>Mobileprovision</strong>.</p>
+          <div class="step-buttons">
+            <button class="next-step-btn">Следующий шаг</button>
+          </div>
+        </div>
+
+        <div class="step hidden" data-step-id="2">
+          <strong>Как сохранить сертификат на устройство.</strong>
+          <p>После получения файлов нажмите на один из них и выберите кнопку вверху "Поделиться".</p>
+          <img src="https://github.com/viibbee/Info/blob/main/cert1.png?raw=true" alt="Шаг 1">
+          <div class="step-buttons">
+            <button class="prev-step-btn">Назад</button>
+            <button class="next-step-btn">Следующий шаг</button>
+          </div>
+        </div>
+
+        <div class="step hidden" data-step-id="3">
+          <p>Далее выберите "Сохранить в Файлы" и укажите место хранения сертификата.</p>
+          <img src="https://github.com/viibbee/Info/blob/main/cert2.png?raw=true" alt="Шаг 2">
+          <p>Нажмите "Сохранить" слева вверху. Повторите для второго файла.</p>
+          <div class="step-buttons">
+            <button class="prev-step-btn">Назад</button>
+            <button class="close-modal-btn">Закрыть</button>
+          </div>
+        </div>
+      </div>
+    `
+  },
+  'warranty': {
     title: '⚠️ Гарантия',
     text: `
-      <p>Гарантия распространяется на все типы сертификатов:</p>
+      <p>Наш магазин предоставляет гарантию на все сертификаты:</p>
       <ul>
         <li><strong>Обычный iPhone:</strong> 3 месяца</li>
         <li><strong>Моментальный iPhone:</strong> 3 месяца</li>
-        <li><strong>Супермоментальный:</strong> 6 месяцев</li>
-        <li><strong>Парный:</strong> 3 месяца</li>
-        <li><strong>iPad:</strong> 3 месяца</li>
+        <li><strong>Супермоментальный iPhone:</strong> 6 месяцев</li>
+        <li><strong>Парный сертификат:</strong> 3 месяца</li>
+        <li><strong>iPad сертификат:</strong> 3 месяца</li>
       </ul>
-      <p><em>Действует с 16.09.2025</em></p>
+
+      <p><em>Действует с 16.09.2025 г.</em></p>
+
       <p>
-        Возврат средств не производится при неверно выбранном типе сертификата.
-        Ознакомьтесь с полными условиями по ссылке ниже:
+        Возврат средств невозможен при неверно выбранном типе сертификата. 
+        Ознакомьтесь с полными условиями:
       </p>
+
       <a href="https://teletype.in/@bbarne77/3x38UdfRftp"
          target="_blank" rel="noopener"
          class="modal-btn confirm-btn"
@@ -48,12 +90,46 @@ const infoContent = {
   }
 };
 
-// === 🧩 Показывает модальное окно ===
-function showModal(title, html) {
+// === 🧩 Пошаговая навигация внутри модалки ===
+function setupStepNavigation() {
+  const steps = infoModal.querySelectorAll('.step');
+  let currentStep = 0;
+
+  function showStep(stepIndex) {
+    steps.forEach((step, index) => {
+      step.classList.toggle('hidden', index !== stepIndex);
+    });
+  }
+
+  infoModal.addEventListener('click', (e) => {
+    if (e.target.classList.contains('next-step-btn')) {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    } else if (e.target.classList.contains('prev-step-btn')) {
+      if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    } else if (e.target.classList.contains('close-modal-btn')) {
+      infoModal.classList.remove('active');
+      currentStep = 0;
+      showStep(currentStep);
+    }
+  });
+
+  showStep(currentStep);
+}
+
+// === 🧩 Функция для показа модалки ===
+function showModal(title, html, key) {
   infoModalTitle.innerHTML = title;
   infoModalText.innerHTML = html;
   infoModal.classList.add('active');
   document.body.style.overflow = 'hidden';
+
+  if (key === 'get-certificate') setupStepNavigation();
 }
 
 // === Закрытие модалки ===
@@ -74,7 +150,7 @@ helpMenuButtons.forEach(btn => {
     e.preventDefault();
     const key = btn.getAttribute('data-info');
     if (infoContent[key]) {
-      showModal(infoContent[key].title, infoContent[key].text);
+      showModal(infoContent[key].title, infoContent[key].text, key);
       helpMenu.classList.remove('show');
     }
   });
@@ -88,9 +164,10 @@ window.addEventListener('click', (e) => {
   if (e.target === infoModal) closeModal();
 });
 
-// === 🧩 BUY МОДАЛКА ===
+// === 🔥 Модалка "Купить" ===
 const buyButtons = document.querySelectorAll('.card-btn');
 const buyModal = document.getElementById('buyModal');
+
 if (buyModal) {
   const buyModalTitle = buyModal.querySelector('.modal-title');
   const buyModalDescription = buyModal.querySelector('.modal-description');
@@ -114,33 +191,30 @@ if (buyModal) {
     });
   });
 
-  closeBtn?.addEventListener('click', () => {
+  closeBtn?.addEventListener('click', closeModalBuy);
+  cancelBtn?.addEventListener('click', closeModalBuy);
+
+  function closeModalBuy() {
     buyModal.classList.remove('active');
     document.body.style.overflow = '';
-  });
-  cancelBtn?.addEventListener('click', () => {
-    buyModal.classList.remove('active');
-    document.body.style.overflow = '';
-  });
+  }
+
   window.addEventListener('click', (e) => {
-    if (e.target === buyModal) {
-      buyModal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
+    if (e.target === buyModal) closeModalBuy();
   });
 }
 
-// === 🧩 Кнопка "Гарантия" под Telegram кнопками ===
+// === Кнопка "Гарантия" ===
 const openWarrantyBtn = document.getElementById('openWarrantyBtn');
 if (openWarrantyBtn) {
   openWarrantyBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    const c = infoContent.warranty;
-    showModal(c.title, c.text);
+    const c = infoContent['warranty'];
+    showModal(c.title, c.text, 'warranty');
   });
 }
 
-// === 💫 Анимация появления карточек ===
+// === 💫 Анимация карточек ===
 const cards = document.querySelectorAll('.card, .vpn-card');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -150,12 +224,12 @@ const observer = new IntersectionObserver(entries => {
 
 cards.forEach(c => observer.observe(c));
 
-// === ✅ Safari Fix: если observer не сработал — показываем карточки вручную ===
+// === ✅ Safari Fix — показать все карточки, если observer не сработал ===
 setTimeout(() => {
   cards.forEach(c => c.classList.add('visible'));
 }, 800);
 
-// === 🌀 Автопрокрутка иконок (если есть баннер) ===
+// === 🌀 Автопрокрутка иконок ===
 const iconCarousel = document.querySelector('.icon-carousel-inner');
 if (iconCarousel) {
   let offset = 0;
