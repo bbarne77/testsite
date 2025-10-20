@@ -1,186 +1,188 @@
-/* ===== СБРОС ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-  width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: linear-gradient(135deg, #001f3f, #004080, #0072ff);
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  color: #fff;
-  overflow-x: hidden;
-}
-
-/* ===== ХЭДЕР ===== */
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 56px;
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-
-.logo-img {
-  height: 34px;
-  width: 34px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.logo-text {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  background: linear-gradient(90deg, #00bfff, #1e90ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 10px rgba(30, 144, 255, 0.6);
-  animation: glowPulse 2s ease-in-out infinite;
-}
-
-@keyframes glowPulse {
-  0%, 100% { text-shadow: 0 0 8px rgba(0, 255, 255, 0.4); }
-  50% { text-shadow: 0 0 16px rgba(0, 255, 255, 0.9); }
-}
-
-/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
-.main-content {
-  padding-top: 80px; /* чтобы отступить от header */
-  padding-bottom: 60px;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* ===== КАРУСЕЛЬ ИКОНОК ===== */
-.icon-carousel-container {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 20px;
-}
-
-.icon-carousel-inner {
-  display: flex;
-  width: max-content;
-  animation: scrollIcons 50s linear infinite;
-  align-items: center;
-}
-
-.icon-carousel-image {
-  width: 60px;
-  height: 60px;
-  margin: 0 10px;
-  border-radius: 12px;
-  flex-shrink: 0;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
-}
-
-@keyframes scrollIcons {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* ===== INFO-BANNER ===== */
-.info-banner {
-  margin: 40px auto 0;
-  max-width: 500px;
+/* ======= ОБЩИЕ СЕКЦИИ ======= */
+.section-title {
+  margin-top: 80px;
   text-align: center;
-  padding: 20px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
 }
-.info-banner .info-text {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 12px;
+.section-title h2 {
+  display: inline-block;
+  padding: 8px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
 }
-.info-buttons {
+
+/* ======= КАРТОЧКИ СЕРТИФИКАТОВ ======= */
+.card-scroll {
+  margin-top: 24px;
+  padding: 0 20px;
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  overflow-x: auto;
+  gap: 16px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  animation: fadeInUp 1.2s ease-out forwards;
+  opacity: 0;
 }
-.info-btn {
+.card-scroll::-webkit-scrollbar { display: none; }
+
+.card {
+  min-width: 260px;
+  max-width: 260px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25),
+              inset 0 0 8px rgba(255, 255, 255, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  color: #fff;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 255, 255, 0.2);
+}
+
+.card-header {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.card-content {
+  text-align: center;
+  font-size: 14.5px;
+  line-height: 1.5;
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  padding: 8px;
+}
+.card-content p { margin: 0; }
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.card-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #00ff99;
+}
+.card-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   background: linear-gradient(135deg, #00c6ff, #0072ff);
   color: #fff;
+  border: none;
   border-radius: 8px;
+  padding: 8px 14px;
   text-decoration: none;
-  padding: 10px 18px;
+  font-size: 14px;
   font-weight: 600;
   transition: transform 0.2s ease;
 }
-.info-btn.alt {
-  background: linear-gradient(135deg, #00ff99, #00c6ff);
-}
-.info-btn:active {
-  transform: scale(0.96);
-}
+.card-btn:active { transform: scale(0.95); }
 
-/* ===== HELP-BUBBLE ===== */
-.help-bubble {
-  position: fixed;
-  bottom: 14px;
-  right: 14px;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(79, 216, 255, 0.4);
-  box-shadow: 0 0 8px rgba(79, 216, 255, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 1000;
-  animation: floaty 1.6s ease-in-out infinite;
+/* ======= VPN БЛОК ======= */
+.vpn-section {
+  margin-top: 80px;
+  padding: 0 20px;
+  text-align: center;
+  animation: fadeInUp 1.2s ease-out forwards;
+  opacity: 0;
 }
-.question-mark {
-  color: #4fd8ff;
+.vpn-section h2 {
+  display: inline-block;
+  padding: 8px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
   font-size: 22px;
-  font-weight: bold;
-  text-shadow: 0 0 6px #4fd8ff, 0 0 12px #4fd8ff;
-}
-@keyframes floaty {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-/* ===== FOOTER ===== */
-.site-footer {
-  width: 100%;
-  height: 38px;
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(6px);
+  font-weight: 600;
   color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 500;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 60px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+}
+.vpn-info {
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+.vpn-info p {
+  margin: 6px 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.vpn-info strong { color: #00e6ff; }
+
+/* ======= ТАРИФЫ VPN ======= */
+.vpn-tariffs {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.vpn-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 14px 18px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.vpn-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0, 255, 255, 0.25);
+}
+.vpn-card h3 {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+.vpn-card p {
+  font-size: 15px;
+  color: #00ff99;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.vpn-card a {
+  display: inline-block;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+.vpn-card a:active { transform: scale(0.96); }
+
+/* ======= АНИМАЦИИ ======= */
+@keyframes fadeInUp {
+  0% { transform: translateY(30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
