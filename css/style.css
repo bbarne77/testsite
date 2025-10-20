@@ -1,0 +1,164 @@
+/* ======== СБРОС ======== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: radial-gradient(circle at top center, #002b80 0%, #001f3f 30%, #000c20 100%);
+  background-attachment: fixed;
+  color: #fff;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* ======== HEADER ======== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 36px;
+  width: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  background: linear-gradient(90deg, #00bfff, #1e90ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(0, 191, 255, 0.7);
+  animation: glowText 2s ease-in-out infinite;
+}
+
+@keyframes glowText {
+  0%, 100% { text-shadow: 0 0 8px rgba(0, 255, 255, 0.4); }
+  50% { text-shadow: 0 0 18px rgba(0, 255, 255, 1); }
+}
+
+/* ======== MAIN ======== */
+.main-content {
+  padding-top: 80px; /* чтобы не налезало на хедер */
+  padding-bottom: 60px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ======== INFO-BANNER ======== */
+.info-banner {
+  margin: 40px auto;
+  max-width: 520px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 14px rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+}
+.info-banner .info-text {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.info-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.info-btn {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 198, 255, 0.25);
+}
+.info-btn.alt {
+  background: linear-gradient(135deg, #00ff99, #00c6ff);
+  box-shadow: 0 4px 10px rgba(0, 255, 153, 0.25);
+}
+.info-btn:hover { transform: scale(1.03); }
+.info-btn:active { transform: scale(0.96); }
+
+/* ======== HELP BUBBLE ======== */
+.help-bubble {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(79, 216, 255, 0.4);
+  box-shadow: 0 0 10px rgba(79, 216, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  animation: floatBubble 1.8s ease-in-out infinite;
+}
+.question-mark {
+  color: #4fd8ff;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 0 0 8px #4fd8ff, 0 0 18px #4fd8ff;
+}
+@keyframes floatBubble {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ======== FOOTER ======== */
+.site-footer {
+  width: 100%;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 50px;
+}
+
+/* ======== MOBILE ======== */
+@media (max-width: 480px) {
+  .main-content { padding-top: 70px; }
+  .logo-text { font-size: 18px; }
+  .info-banner { width: 90%; }
+  .vpn-card, .card { min-width: 90%; }
+}
