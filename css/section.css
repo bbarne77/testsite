@@ -311,6 +311,7 @@ html, body {
     transform: translateY(-6px);
   }
 }
+
 /* ===== HELP MENU ===== */
 .help-menu {
   position: fixed;
@@ -421,18 +422,12 @@ html, body {
   cursor: pointer;
   transition: transform 0.2s ease, color 0.2s ease;
 }
-.info-modal-close-btn:hover,
-.info-modal-close-btn:focus {
+.info-modal-close-btn:hover {
   color: #fff;
   transform: rotate(90deg);
-  text-decoration: none;
 }
 
-/* === INFO MODAL STEP SYSTEM === */
-.info-modal-content .step-container {
-  padding: 0;
-  text-align: left;
-}
+/* ===== INFO MODAL STEP SYSTEM ===== */
 .info-modal-content .step {
   animation: fadeIn 0.5s ease-out forwards;
   margin-bottom: 20px;
@@ -445,15 +440,6 @@ html, body {
   display: block;
   font-size: 1.1em;
   margin-bottom: 10px;
-}
-.info-modal-content .step img {
-  width: 100%;
-  max-width: 250px;
-  height: auto;
-  display: block;
-  margin: 15px auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .info-modal-content .step-buttons {
   display: flex;
@@ -468,24 +454,19 @@ html, body {
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
   flex: 1;
 }
-.info-modal-content .step-buttons .next-step-btn {
+.info-modal-content .next-step-btn {
   background-color: #0072ff;
   color: #fff;
 }
-.info-modal-content .step-buttons .prev-step-btn {
+.info-modal-content .prev-step-btn {
   background-color: rgba(255, 255, 255, 0.1);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
 }
-.info-modal-content .step-buttons .close-modal-btn {
+.info-modal-content .close-modal-btn {
   background-color: #ff4500;
   color: #fff;
-}
-.info-modal-content .step-buttons button:active {
-  transform: scale(0.96);
 }
 
 /* ===== MAIN MODAL ===== */
@@ -522,70 +503,17 @@ html, body {
 }
 .modal-title {
   font-size: 24px;
-  margin-bottom: 10px;
   color: #00c6ff;
   font-weight: 700;
-}
-.modal-description {
-  font-size: 15px;
-  line-height: 1.5;
-  color: #e0e0e0;
-  margin-bottom: 20px;
-}
-.modal-info {
-  font-size: 14px;
-  line-height: 1.4;
-  color: #ccc;
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-.modal-info strong {
-  color: #ff4d4d;
-}
-.modal-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 15px;
-}
-.modal-btn {
-  flex: 1;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-.modal-btn.cancel-btn {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 10px;
 }
 .modal-btn.confirm-btn {
   background: linear-gradient(135deg, #00c6ff, #0072ff);
   color: #fff;
-}
-.modal-btn:active {
-  transform: scale(0.98);
-}
-.close-btn {
-  color: #aaa;
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 30px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-.close-btn:hover {
-  color: #fff;
-  transform: rotate(90deg);
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 600;
 }
 
 /* ===== VPN SECTION ===== */
@@ -609,25 +537,12 @@ html, body {
   text-shadow: 0 0 8px rgba(79, 216, 255, 0.6);
   margin-bottom: 12px;
 }
-.vpn-details p {
-  font-size: 15px;
-  line-height: 1.6;
-  text-align: center;
-  margin: 4px 0;
-  color: #b8e8ff;
-}
 .vpn-subtitle {
   font-size: 16px;
   font-weight: 600;
   color: #00e6ff;
   text-align: center;
   margin: 20px 0 12px;
-}
-.vpn-plans {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
 }
 .vpn-plan {
   background: rgba(255, 255, 255, 0.07);
@@ -639,33 +554,9 @@ html, body {
   font-weight: 600;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.vpn-plan span {
-  display: block;
-  font-size: 14px;
-  color: #a0dfff;
-}
 .vpn-plan:hover {
   transform: scale(1.05);
   box-shadow: 0 0 14px rgba(79, 216, 255, 0.25);
-}
-.vpn-btn {
-  display: block;
-  width: fit-content;
-  margin: 24px auto 0;
-  padding: 12px 30px;
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-  color: #fff;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 198, 255, 0.4);
-  transition: transform 0.2s ease;
-}
-.vpn-btn:hover {
-  transform: scale(1.05);
-}
-.vpn-btn:active {
-  transform: scale(0.96);
 }
 
 /* ===== FOOTER ===== */
