@@ -1,4 +1,4 @@
-/* ========== СБРОС И БАЗА ========== */
+/* Сброс */
 * {
   margin: 0;
   padding: 0;
@@ -8,149 +8,122 @@
 html, body {
   height: 100%;
   width: 100%;
+  overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: #fff;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
-/* ========== ФОН ========== */
+/* Градиентный фон */
 body {
-  background: linear-gradient(135deg, #001a33 0%, #003366 50%, #004080 100%);
-  background-attachment: fixed;
+  background: linear-gradient(135deg, #001f3f, #004080, #0072ff);
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-blend-mode: normal;
+  filter: none !important;
 }
 
-/* ========== HEADER ========== */
+/* ===== Шапка ===== */
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 56px;
-  background: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 999;
-  box-shadow: 0 4px 12px rgba(0, 191, 255, 0.08);
 }
 
 .header-content {
+  width: 100%;
+  max-width: 480px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  padding: 0 16px;
+  gap: 12px;
 }
 
 .logo-img {
-  height: 34px;
-  width: 34px;
+  height: 32px;
+  width: 32px;
   border-radius: 8px;
   object-fit: cover;
-  filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.4));
 }
 
+/* 🔥 Стильный заголовок iPAWORLD */
 .logo-text {
   font-size: 20px;
   font-weight: 700;
+  letter-spacing: 1px;
   background: linear-gradient(90deg, #00bfff, #1e90ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 8px rgba(30, 144, 255, 0.6);
-  letter-spacing: 0.5px;
-  animation: pulseGlow 2s ease-in-out infinite;
+  text-shadow: 0 0 8px rgba(30, 144, 255, 0.5);
+  animation: pulse 2s ease-in-out infinite;
 }
 
-/* Анимация мягкого свечения логотипа */
-@keyframes pulseGlow {
-  0%, 100% { text-shadow: 0 0 8px rgba(0, 191, 255, 0.4); }
-  50% { text-shadow: 0 0 16px rgba(0, 191, 255, 0.8); }
+@keyframes pulse {
+  0%, 100% {
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  }
 }
 
-/* ========== MAIN ========== */
-.main-content {
-  padding-top: 72px;
-  padding-bottom: 60px;
+/* Стили для карусели иконок */
+.icon-carousel-container {
   width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
+  margin: 0 auto 16px;
+  overflow: hidden;
+  position: relative;
 }
 
-/* ========== FOOTER ========== */
-.site-footer {
-  width: 100%;
-  height: 40px;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(6px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+.icon-carousel-inner {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-  text-shadow: 0 0 4px rgba(0, 191, 255, 0.3);
-  margin-top: 40px;
+  width: max-content; /* Ширина, достаточная для всех иконок и их дубликата */
+  animation: scrollIcons 10s linear infinite; /* Анимация теперь здесь */
+  width: 200%; /* Увеличиваем ширину, чтобы вместить дубликаты */
+  display: flex; /* Используем flexbox для расположения иконок */
+  animation: scrollIcons 10s linear infinite;
 }
 
-/* ========== СКРОЛЛ ========== */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-}
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #00bfff, #0072ff);
-  border-radius: 6px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #00cfff, #0099ff);
+.icon-carousel-image {
+  width: 50px;
+  height: 50px;
+  margin: 0 10px;
+  flex-shrink: 0; /* Важно, чтобы иконки не сжимались */
+  float: left; /* Располагаем иконки в одну строку */
+  flex-shrink: 0;
 }
 
-/* ========== АНИМАЦИИ ========== */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes scrollIcons {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* ========== МЕДИА ========== */
+/* Медиа-запрос для мобильных устройств */
 @media (max-width: 480px) {
-  .logo-text { font-size: 18px; }
-  .logo-img { height: 30px; width: 30px; }
-  .main-content { padding-top: 64px; padding-bottom: 80px; }
-  .section-title h2 { font-size: 20px; }
-  .card, .vpn-card { min-width: 250px; }
-  .vpn-info, .vpn-tariffs { max-width: 90%; }
-  .info-btn { font-size: 14px; padding: 8px 14px; }
+  .icon-carousel-container {
+    margin-bottom: 12px;
+  }
+
+  .icon-carousel-image {
+    width: 40px;
+    height: 40px;
+    margin: 0 8px;
+  }
 }
 
-/* ========== ОБЩИЕ ЭФФЕКТЫ ========== */
-.glow-border {
-  border: 1px solid rgba(0, 191, 255, 0.25);
-  box-shadow: 0 0 12px rgba(0, 191, 255, 0.15);
-}
-
-.blur-bg {
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(8px);
-  border-radius: 12px;
+/* Анимация прокрутки */
+@keyframes scrollIcons {
+  from {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%); /* Анимируем контейнер на 50% его ширины */
+  100% {
+    transform: translateX(-50%); /* Перемещаем контейнер на 50% */
+  }
 }
