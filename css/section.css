@@ -1,313 +1,186 @@
-/* ====== ОБЩИЕ АНИМАЦИИ ====== */
-@keyframes fadeInUp {
-  0% { transform: translateY(30px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+/* ===== СБРОС ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* ====== СЕКЦИИ ====== */
-.section-title {
-  margin-top: 72px;
-  text-align: center;
-  animation: fadeInUp 1s ease-out forwards;
-  opacity: 0;
-}
-.section-title h2 {
-  display: inline-block;
-  padding: 8px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 12px;
-  font-size: 22px;
-  font-weight: 600;
-  color: #ffffff;
-  background: rgba(0, 0, 0, 0.4);
-  letter-spacing: 0.5px;
+html, body {
+  height: 100%;
+  width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(4px);
+  background: linear-gradient(135deg, #001f3f, #004080, #0072ff);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #fff;
+  overflow-x: hidden;
 }
 
-/* ====== КАРТОЧКИ СЕРТИФИКАТОВ ====== */
-.card-scroll {
-  margin-top: 20px;
-  padding-left: 24px;
-  padding-right: 16px;
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-padding-left: 24px;
-  gap: 16px;
-  -webkit-overflow-scrolling: touch;
-  animation: fadeInUp 1.3s ease-out forwards;
-  opacity: 0;
-  animation-delay: 0.2s;
-}
-.card-scroll::-webkit-scrollbar { display: none; }
-
-.card {
-  min-width: 280px;
-  max-width: 280px;
-  height: 200px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-  scroll-snap-align: start;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  padding: 12px 16px;
+/* ===== ХЭДЕР ===== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2),
-              inset 0 0 8px rgba(255, 255, 255, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  color: #fff;
-}
-.card-content-wrapper {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-content: flex-start;
-}
-.card-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin-bottom: 8px;
-  position: relative;
+  z-index: 999;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-.card-header::before, .card-header::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.2);
-}
-.card-header h3 {
-  font-size: 22px;
-  font-weight: 600;
-  margin: 0;
-  white-space: nowrap;
-  text-align: center;
-}
-.card-content {
-  text-align: center;
-  font-size: 14.5px;
-  line-height: 1.5;
-  margin: 0;
-  padding: 8px 10px 12px;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-  min-height: 80px;
-  max-height: 80px;
-}
-.card-content p { font-weight: 500; }
 
-.card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 6px;
-}
-.card-price {
-  font-size: 16px;
-  font-weight: 700;
-  color: #00ff99;
-}
-.card-btn {
+.header-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 8px 16px;
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-  border: none;
+  gap: 12px;
+}
+
+.logo-img {
+  height: 34px;
+  width: 34px;
   border-radius: 8px;
-  color: #fff;
-  font-size: 14.5px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: transform 0.2s ease;
+  object-fit: cover;
 }
-.card-btn:active { transform: scale(0.96); }
 
-/* ====== VPN-БЛОК ====== */
-.vpn-section {
-  margin: 40px auto;
-  padding: 24px 20px;
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #00bfff, #1e90ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(30, 144, 255, 0.6);
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 8px rgba(0, 255, 255, 0.4); }
+  50% { text-shadow: 0 0 16px rgba(0, 255, 255, 0.9); }
+}
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+.main-content {
+  padding-top: 80px; /* чтобы отступить от header */
+  padding-bottom: 60px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ===== КАРУСЕЛЬ ИКОНОК ===== */
+.icon-carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.icon-carousel-inner {
+  display: flex;
+  width: max-content;
+  animation: scrollIcons 50s linear infinite;
+  align-items: center;
+}
+
+.icon-carousel-image {
+  width: 60px;
+  height: 60px;
+  margin: 0 10px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+@keyframes scrollIcons {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== INFO-BANNER ===== */
+.info-banner {
+  margin: 40px auto 0;
   max-width: 500px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  animation: fadeInUp 1s ease-out forwards;
-  opacity: 0;
-}
-.vpn-info {
-  color: #fff;
-  margin-bottom: 16px;
-  font-size: 15px;
-}
-.vpn-info ul {
-  list-style: none;
-  padding: 0;
-  margin: 8px 0;
-  font-size: 15px;
-  line-height: 1.6;
-}
-.vpn-info li::before {
-  content: "• ";
-  color: #00e6ff;
-}
-.vpn-subtitle {
-  margin-top: 12px;
-  font-weight: 600;
-  color: #00c6ff;
-}
-.vpn-card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 16px;
-}
-.vpn-card {
-  width: 45%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
   border-radius: 14px;
-  padding: 14px;
-  color: #fff;
-  backdrop-filter: blur(8px);
-  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
-.vpn-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 198, 255, 0.25);
+.info-banner .info-text {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 12px;
 }
-.vpn-card h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 4px;
+.info-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
-.vpn-card p {
-  font-size: 15px;
-  color: #00ffcc;
-  margin-bottom: 10px;
-}
-.vpn-card .card-btn {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  padding: 8px 0;
+.info-btn {
   background: linear-gradient(135deg, #00c6ff, #0072ff);
-  border-radius: 8px;
   color: #fff;
-  font-weight: 600;
+  border-radius: 8px;
   text-decoration: none;
+  padding: 10px 18px;
+  font-weight: 600;
   transition: transform 0.2s ease;
 }
-.vpn-card .card-btn:active { transform: scale(0.96); }
+.info-btn.alt {
+  background: linear-gradient(135deg, #00ff99, #00c6ff);
+}
+.info-btn:active {
+  transform: scale(0.96);
+}
 
-/* ====== МОДАЛКИ ====== */
-.modal {
-  display: none;
+/* ===== HELP-BUBBLE ===== */
+.help-bubble {
   position: fixed;
-  z-index: 3000;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(5px);
+  bottom: 14px;
+  right: 14px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(79, 216, 255, 0.4);
+  box-shadow: 0 0 8px rgba(79, 216, 255, 0.5);
+  display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  animation: floaty 1.6s ease-in-out infinite;
 }
-.modal.active { display: flex; }
-
-.modal-content {
-  background-color: #2c2c2e;
-  color: #fff;
-  padding: 30px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  width: 90%;
-  max-width: 380px;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-  animation: modalPopUp 0.3s ease-out;
-}
-.modal-title {
+.question-mark {
+  color: #4fd8ff;
   font-size: 22px;
-  color: #00c6ff;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-.modal-description {
-  font-size: 15px;
-  color: #e0e0e0;
-  margin-bottom: 20px;
-  line-height: 1.5;
-}
-.modal-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-}
-.modal-btn {
-  flex: 1;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-.modal-btn.cancel-btn {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-.modal-btn.confirm-btn {
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-  color: #fff;
-}
-.modal-btn:active { transform: scale(0.97); }
-.close-btn {
-  color: #aaa;
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 30px;
   font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.2s ease, color 0.2s ease;
+  text-shadow: 0 0 6px #4fd8ff, 0 0 12px #4fd8ff;
 }
-.close-btn:hover {
-  color: #fff;
-  transform: rotate(90deg);
-}
-@keyframes modalPopUp {
-  from { transform: scale(0.9); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+@keyframes floaty {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
-/* ===== ФУТЕР ===== */
+/* ===== FOOTER ===== */
 .site-footer {
   width: 100%;
-  height: 36px;
-  background-color: rgba(0, 0, 0, 0.4);
+  height: 38px;
+  background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(6px);
-  color: #ffffff;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 13px;
   font-weight: 500;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
-  margin-top: 40px;
+  margin-top: 60px;
 }
