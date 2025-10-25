@@ -2,7 +2,7 @@
    iPAWORLD Dark-Neon Theme (по макету со скриншота)
    ========================================================= */
 
-/* ===== SECTION TITLE (Соответствует Dark-Theme) ===== */
+/* ===== SECTION TITLE ===== */
 .section-title {
     margin-top: 72px;
     text-align: center;
@@ -11,27 +11,27 @@
 }
 .section-title h2 {
     display: inline-block;
-    padding: 6px 18px; /* Меньше padding */
+    padding: 6px 18px; 
     border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 8px; /* Меньше радиус */
-    font-size: 20px; /* Меньше размер шрифта */
+    border-radius: 8px; 
+    font-size: 20px; 
     font-weight: 600;
     color: #ffffff;
     background: rgba(0, 0, 0, 0.6);
     letter-spacing: 0.5px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    text-shadow: none; /* Убираем тень */
+    text-shadow: none;
     backdrop-filter: blur(8px);
 }
 
 /* ===== CARD SCROLL (Сетка вместо скролла) ===== */
 .card-scroll {
     margin-top: 20px;
-    padding: 0 12px; /* Меньше padding */
-    display: grid; /* Используем Grid для сетки */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивная сетка */
-    gap: 12px; /* Расстояние между карточками */
-    justify-items: center; /* Центрируем карточки */
+    padding: 0 12px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px; 
+    justify-items: center; 
     animation: fadeInUp 1.3s ease-out forwards;
     opacity: 0;
     animation-delay: 0.2s;
@@ -43,14 +43,14 @@
 /* ===== CARD (Стилизовано под Скриншот) ===== */
 .card {
     width: 100%;
-    max-width: 420px; /* Ограничение для больших экранов */
-    height: 160px; /* Фиксированная высота */
+    max-width: 420px;
+    height: 160px;
     background: rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px; /* Меньше радиус */
+    border-radius: 12px;
     flex-shrink: 0;
     display: flex;
-    flex-direction: row; /* Контент и футер в ряд */
+    flex-direction: row; 
     padding: 16px;
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), inset 0 0 4px rgba(255, 255, 255, 0.05);
@@ -61,11 +61,10 @@
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(0, 114, 255, 0.3);
 }
-
-/* ===== CARD CONTENT (Перестройка структуры) ===== */
+/* Адаптация внутренней структуры для горизонтального макета */
 .card-content-wrapper {
     display: flex;
-    flex-direction: column; /* Заголовок и контент в колонку */
+    flex-direction: column;
     flex-grow: 1;
     justify-content: flex-start;
 }
@@ -78,12 +77,12 @@
     margin-bottom: 4px;
 }
 .card-header::before, .card-header::after {
-    display: none; /* Убираем линии */
+    display: none;
 }
 .card-header h3 {
     font-size: 18px;
     font-weight: 600;
-    color: #fff; /* Белый цвет для заголовка */
+    color: #fff;
     text-shadow: none;
     margin: 0;
     white-space: nowrap;
@@ -92,7 +91,7 @@
     text-align: left;
     font-size: 14px;
     line-height: 1.4;
-    background: none; /* Убираем фон */
+    background: none;
     border-radius: 0;
     padding: 0;
     min-height: unset;
@@ -105,22 +104,22 @@
 
 .card-footer {
     display: flex;
-    flex-direction: column; /* Цена и кнопка друг под другом */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 0;
-    margin-left: auto; /* Прижимаем к правому краю */
+    margin-left: auto;
     gap: 8px;
 }
 .card-price {
     font-size: 18px;
     font-weight: 700;
-    color: #00ff99; /* Неоново-зеленый */
+    color: #00ff99;
 }
 .card-btn {
     display: flex;
     align-items: center;
-    flex-direction: row-reverse; /* Меняем местами текст и иконку */
+    flex-direction: row-reverse; 
     gap: 4px;
     padding: 8px 14px;
     background: linear-gradient(135deg, #00c6ff, #0072ff);
@@ -134,7 +133,7 @@
 .card-btn svg {
     width: 16px;
     height: 16px;
-    transform: rotate(-90deg); /* Поворачиваем стрелку вверх, как на скриншоте */
+    transform: rotate(-90deg);
 }
 .card-btn:active { transform: scale(0.96); }
 
@@ -167,7 +166,7 @@
         margin-top: 10px;
     }
     .card-btn svg {
-        transform: none; /* Сбрасываем поворот для мобильных */
+        transform: none;
     }
 }
 
@@ -179,7 +178,7 @@
     margin: 50px auto;
     padding: 26px;
     border-radius: 20px;
-    background: rgba(0, 0, 0, 0.4); /* Темная прозрачная панель */
+    background: rgba(0, 0, 0, 0.4); 
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 0 20px rgba(0, 114, 255, 0.2);
     color: #fff;
@@ -254,9 +253,9 @@
 /* ===== INFO BANNER (Разделен и стилизован под скриншот) ===== */
 .info-banner {
     width: 90%;
-    max-width: 100%; /* Убираем max-width, чтобы карусель занимала всю доступную ширину */
+    max-width: 100%; 
     margin: 30px auto 0;
-    padding: 0; /* Убираем padding у родителя */
+    padding: 0;
     background: none;
     border-radius: 0;
     backdrop-filter: none;
@@ -279,30 +278,25 @@
     align-items: center;
 }
 .icon-carousel-image {
-    height: 60px; /* Высота иконок */
+    height: 60px;
     width: auto;
     margin: 0 8px;
     flex-shrink: 0;
     border-radius: 12px;
-    box-shadow: none; /* Убираем тени с иконок, как на скриншоте */
+    box-shadow: none;
 }
 
 /* Контейнер для текста и кнопок */
-.info-text-container {
-    width: 90%;
-    max-width: 460px; /* Ограничиваем ширину контента */
-    margin: 20px auto 0;
-    padding: 16px 20px;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 12px;
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 10px rgba(0, 114, 255, 0.1);
-}
+/* В HTML этот блок не обернут в .info-text-container, 
+   поэтому я применю стили к следующим элементам: */
 .info-banner .info-text {
+    width: 90%;
+    max-width: 460px; 
+    margin: 20px auto 14px;
+    padding: 0; /* Убираем padding */
+    background: none; /* Убираем фон */
     font-size: 15.5px;
     line-height: 1.6;
-    margin-bottom: 14px;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 .info-buttons {
@@ -321,6 +315,7 @@
     font-weight: 700;
     transition: transform 0.2s ease;
     box-shadow: 0 4px 10px rgba(0, 198, 255, 0.25);
+    border: none; /* Убедимся, что нет границ */
 }
 .info-btn.alt {
     background: linear-gradient(135deg, #00ff99, #00c6ff);
@@ -403,7 +398,7 @@
     transform: scale(0.98);
 }
 
-/* ===== INFO MODAL (Темная Тема) ===== */
+/* ===== MODAL (Темная Тема) ===== */
 .info-modal {
     display: none;
     position: fixed;
@@ -477,7 +472,7 @@
     transform: rotate(90deg);
 }
 
-/* === INFO MODAL STEP SYSTEM (Темная Тема) === */
+/* === INFO MODAL STEP SYSTEM === */
 .info-modal-content .step-container { padding: 0; text-align: left; }
 .info-modal-content .step { animation: fadeIn 0.5s ease-out forwards; margin-bottom: 20px; }
 .info-modal-content .step.hidden { display: none; }
@@ -529,7 +524,7 @@
     transform: scale(0.96);
 }
 
-/* ===== MAIN CONFIRM MODAL (Темная Тема) ===== */
+/* ===== MAIN CONFIRM MODAL ===== */
 .modal {
     display: none;
     position: fixed;
