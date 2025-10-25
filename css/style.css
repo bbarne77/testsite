@@ -1,129 +1,145 @@
 /* Сброс */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html, body {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto; /* Разрешаем скролл по оси Y */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Градиентный фон */
+/* Градиентный фон (Темная Неон-Тема) */
 body {
-  background: linear-gradient(135deg, #001f3f, #004080, #0072ff);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-blend-mode: normal;
-  filter: none !important;
+  background: linear-gradient(135deg, #001f3f, #004080, #0072ff);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-blend-mode: normal;
+  color: #fff;
 }
 
 /* ===== Шапка ===== */
 .site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 56px;
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
 }
 
 .header-content {
-  width: 100%;
-  max-width: 480px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 16px;
-  gap: 12px;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  gap: 12px;
 }
 
 .logo-img {
-  height: 32px;
-  width: 32px;
-  border-radius: 8px;
-  object-fit: cover;
+  height: 32px;
+  width: 32px;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 /* 🔥 Стильный заголовок iPAWORLD */
 .logo-text {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  background: linear-gradient(90deg, #00bfff, #1e90ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 8px rgba(30, 144, 255, 0.5);
-  animation: pulse 2s ease-in-out infinite;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #00bfff, #1e90ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px rgba(30, 144, 255, 0.5);
+  animation: pulse 2s ease-in-out infinite;
 }
 
 @keyframes pulse {
-  0%, 100% {
-    text-shadow: 0 0 6px rgba(0, 255, 255, 0.4);
-  }
-  50% {
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-  }
+  0%, 100% {
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  }
 }
 
 /* Стили для карусели иконок */
 .icon-carousel-container {
-  width: 100%;
-  margin: 0 auto 16px;
-  overflow: hidden;
-  position: relative;
+  width: 100%;
+  margin: 0 auto 16px;
+  overflow: hidden;
+  position: relative;
 }
 
 .icon-carousel-inner {
-  display: flex;
-  width: max-content; /* Ширина, достаточная для всех иконок и их дубликата */
-  animation: scrollIcons 10s linear infinite; /* Анимация теперь здесь */
-  width: 200%; /* Увеличиваем ширину, чтобы вместить дубликаты */
-  display: flex; /* Используем flexbox для расположения иконок */
-  animation: scrollIcons 10s linear infinite;
+  display: flex;
+  width: max-content;
+  animation: scrollIcons 10s linear infinite;
+  width: 200%;
+  display: flex;
+  animation: scrollIcons 10s linear infinite;
 }
 
 .icon-carousel-image {
-  width: 50px;
-  height: 50px;
-  margin: 0 10px;
-  flex-shrink: 0; /* Важно, чтобы иконки не сжимались */
-  float: left; /* Располагаем иконки в одну строку */
-  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  margin: 0 10px;
+  flex-shrink: 0;
+  float: left;
+  border-radius: 12px;
+  object-fit: cover;
 }
 
 /* Медиа-запрос для мобильных устройств */
 @media (max-width: 480px) {
-  .icon-carousel-container {
-    margin-bottom: 12px;
-  }
+  .icon-carousel-container {
+    margin-bottom: 12px;
+  }
 
-  .icon-carousel-image {
-    width: 40px;
-    height: 40px;
-    margin: 0 8px;
-  }
+  .icon-carousel-image {
+    width: 40px;
+    height: 40px;
+    margin: 0 8px;
+  }
 }
 
 /* Анимация прокрутки */
 @keyframes scrollIcons {
-  from {
-  0% {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%); /* Анимируем контейнер на 50% его ширины */
-  100% {
-    transform: translateX(-50%); /* Перемещаем контейнер на 50% */
-  }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== Футер ===== */
+.site-footer {
+  width: 100%;
+  height: 36px;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  margin-top: 40px; /* Увеличил отступ, чтобы не сливался с контентом */
 }
