@@ -83,15 +83,16 @@
     text-align: center;
 }
 .card-content {
+    width: calc(100% + 32px); /* +32px компенсирует внутренние паддинги карточки */
+    margin-left: -16px; /* выравниваем по левому краю карточки */
+    margin-right: -16px; /* выравниваем по правому краю карточки */
+    background: rgba(0, 0, 0, 0.6); /* делаем фон чуть плотнее для контраста */
+    border-radius: 0 0 12px 12px; /* закругляем только нижние углы, чтобы совпадало с карточкой */
+    padding: 10px 16px;
     text-align: center;
     font-size: 14.5px;
     line-height: 1.5;
-    margin: 0;
-    padding: 8px 10px 12px;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    min-height: 80px; /* Увеличил высоту контейнера */
-    max-height: 80px; /* Увеличил высоту контейнера */
+    color: #fff;
 }
 
 /* Добавляем стили для выделения текста в описании */
