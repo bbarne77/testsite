@@ -1,640 +1,624 @@
 .section-title {
-    margin-top: 72px;
-    text-align: center;
-    animation: fadeInUp 1s ease-out forwards;
-    opacity: 0;
+    margin-top: 72px;
+    text-align: center;
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
 }
 .section-title h2 {
-    display: inline-block;
-    padding: 8px 24px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 12px;
-    font-size: 22px;
-    font-weight: 600;
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.4);
-    letter-spacing: 0.5px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(4px);
+    display: inline-block;
+    padding: 8px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.5px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
 }
 .card-scroll {
-    margin-top: 20px;
-    padding-left: 24px;
-    padding-right: 16px;
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-padding-left: 24px;
-    gap: 16px;
-    -webkit-overflow-scrolling: touch;
-    animation: fadeInUp 1.3s ease-out forwards;
-    opacity: 0;
-    animation-delay: 0.2s;
+    margin-top: 20px;
+    padding-left: 24px;
+    padding-right: 16px;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 24px;
+    gap: 16px;
+    -webkit-overflow-scrolling: touch;
+    animation: fadeInUp 1.3s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.2s;
 }
 .card-scroll::-webkit-scrollbar {
-    display: none;
+    display: none;
 }
 .card {
-    min-width: 280px;
-    max-width: 280px;
-    height: 200px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    scroll-snap-align: start;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    /* ✅ ИСПРАВЛЕНО: Убран нижний padding, чтобы .card-content прижался к низу */
-    padding: 12px 16px 0;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2),
-                inset 0 0 8px rgba(255, 255, 255, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    color: #fff;
+    min-width: 280px;
+    max-width: 280px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2),
+                inset 0 0 8px rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: #fff;
+    /* Убрал justify-content: space-between; */
 }
 /* Добавил новый класс для группировки контента */
 .card-content-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Заставляет этот блок растягиваться, прижимая футер вниз */
-    justify-content: flex-start; /* Выравнивание контента вверх */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Заставляет этот блок растягиваться, прижимая футер вниз */
+    justify-content: flex-start; /* Выравнивание контента вверх */
 }
 .card-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 8px;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    position: relative;
 }
 .card-header::before, .card-header::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.2);
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 .card-header h3 {
-    font-size: 22px;
-    font-weight: 600;
-    margin: 0;
-    white-space: nowrap;
-    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    white-space: nowrap;
+    text-align: center;
 }
-
-/* 🔥 ИСПРАВЛЕННЫЙ БЛОК: Черный контейнер во всю ширину */
 .card-content {
-    /* Стили для растягивания */
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    justify-content: space-between;
-    /* ✅ ГЛАВНОЕ ИСПРАВЛЕНИЕ: Компенсируем padding родителя */
-    margin: 0 -16px; 
-    
-    /* Стили для фона и скругления */
-    background: rgba(0, 0, 0, 0.6); 
-    border-radius: 0 0 20px 20px; 
-
-    /* Сбрасываем старые значения */
-    text-align: center;
-    font-size: 14.5px;
-    line-height: 1.5;
-    
-    /* Вертикальный padding сверху */
-    padding: 8px 0 0;
-    /* Сбрасываем жесткие высоты */
-    min-height: unset; 
-    max-height: unset;
+    text-align: center;
+    font-size: 14.5px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 8px 10px 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    min-height: 80px; /* Увеличил высоту контейнера */
+    max-height: 80px; /* Увеличил высоту контейнера */
 }
 
 /* Добавляем стили для выделения текста в описании */
 .card-content p {
-    font-weight: 500;
-    /* ✅ Внутренний padding для текста */
-    padding: 0 16px; 
-    margin: 0;
+    font-weight: 500;
 }
 
-/* 🔥 ИСПРАВЛЕННЫЙ БЛОК: Футер (теперь внутри .card-content) */
 .card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* ✅ Вернули отступы, чтобы цена и кнопка не прилипали к краям черного контейнера */
-    padding: 6px 16px 12px 16px;
-    margin-top: 0; /* Не нужен, т.к. есть padding */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
 }
 .card-price {
-    font-size: 16px;
-    font-weight: 700;
-    color: #00ff99;
+    font-size: 16px;
+    font-weight: 700;
+    color: #00ff99;
 }
 .card-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 16px; /* Увеличен padding */
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 14.5px; /* Увеличен размер шрифта */
-    font-weight: 500;
-    text-decoration: none;
-    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    padding: 8px 16px; /* Увеличен padding */
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 13.5px;
+    font-size: 14.5px; /* Увеличен размер шрифта */
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.2s ease;
 }
 .card-btn svg {
-    width: 16px;
-    height: 16px;
+    width: 16px;
+    height: 16px;
 }
 .card-btn:active {
-    transform: scale(0.96);
+    transform: scale(0.96);
 }
 @keyframes fadeInUp {
-    0% {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0px);
-        opacity: 1;
-    }
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
 }
 .info-banner {
-    max-width: 110%;
-    margin: 20px auto;
-    padding: 16px 20px;
-    background: rgba(255, 255, 255, 0.07);
-    border-radius: 14px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
-    text-align: center;
-    color: #e3faff;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    animation: fadeInUp 1s ease forwards;
+    max-width: 110%;
+    margin: 20px auto;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+    text-align: center;
+    color: #e3faff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    animation: fadeInUp 1s ease forwards;
 }
 .icon-carousel-container {
-    width: 100%;
-    max-height: 80px; /* Ограничиваем высоту карусели */
-    overflow: hidden;
+    width: 100%;
+    max-height: 80px; /* Ограничиваем высоту карусели */
+    overflow: hidden;
 }
 .icon-carousel-inner {
-    display: flex;
-    animation: scroll-icons 60s linear infinite;
-    align-items: center;
+    display: flex;
+    animation: scroll-icons 60s linear infinite;
+    align-items: center;
 }
 .icon-carousel-image {
-    height: 60px; /* Фиксированная высота для иконок */
-    width: auto;
-    margin: 0 8px;
-    flex-shrink: 0;
-    border-radius: 12px;
+    height: 60px; /* Фиксированная высота для иконок */
+    width: auto;
+    margin: 0 8px;
+    flex-shrink: 0;
+    border-radius: 12px;
 }
 .info-banner .info-text {
-    font-size: 16.5px; /* Увеличен размер шрифта */
-    line-height: 1.6;
-    margin-bottom: 14px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    font-size: 15.5px;
+    font-size: 16.5px; /* Увеличен размер шрифта */
+    line-height: 1.6;
+    margin-bottom: 14px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 /* Новый контейнер для текста, аналогичный описаниям сертификатов */
 .info-text-container {
-    padding: 8px 10px 12px;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    margin-bottom: 14px;
+    padding: 8px 10px 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    margin-bottom: 14px;
 }
 .info-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 .info-btn {
-    padding: 10px 20px; /* Увеличен padding */
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 15px; /* Увеличен размер шрифта */
-    font-weight: 600;
-    transition: transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 198, 255, 0.25);
+    padding: 8px 16px;
+    padding: 10px 20px; /* Увеличен padding */
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-size: 15px; /* Увеличен размер шрифта */
+    font-weight: 600;
+    transition: transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 198, 255, 0.25);
 }
 .info-btn.alt {
-    background: linear-gradient(135deg, #00ff99, #00c6ff);
-    box-shadow: 0 4px 10px rgba(0, 255, 153, 0.25);
+    background: linear-gradient(135deg, #00ff99, #00c6ff);
+    box-shadow: 0 4px 10px rgba(0, 255, 153, 0.25);
 }
 .info-btn:active {
-    transform: scale(0.96);
+    transform: scale(0.96);
 }
 .info-banner-image {
-    width: 150px;
-    height: auto;
-    display: block;
-    margin: 0 auto 16px;
-    border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-    animation: fadeInUp 0.8s ease-out forwards;
-    opacity: 0;
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto 16px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
 }
 .help-bubble {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(2px);
-    border: 1px solid rgba(79, 216, 255, 0.4);
-    box-shadow: 0 0 8px rgba(79, 216, 255, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    animation: floatBubble 1.6s ease-in-out infinite;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(79, 216, 255, 0.4);
+    box-shadow: 0 0 8px rgba(79, 216, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: floatBubble 1.6s ease-in-out infinite;
 }
 .help-bubble:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 12px rgba(79, 216, 255, 0.8);
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(79, 216, 255, 0.8);
 }
 .question-mark {
-    color: #4fd8ff;
-    font-size: 22px;
-    font-weight: bold;
-    text-shadow: 0 0 6px #4fd8ff, 0 0 12px #4fd8ff;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    animation: pulseMark 1.2s ease-in-out infinite;
+    color: #4fd8ff;
+    font-size: 22px;
+    font-weight: bold;
+    text-shadow: 0 0 6px #4fd8ff, 0 0 12px #4fd8ff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    animation: pulseMark 1.2s ease-in-out infinite;
 }
 @keyframes pulseMark {
-    0% {
-        transform: scale(1);
-        text-shadow: 0 0 6px #4fd8ff, 0 0 12px #4fd8ff;
-    }
-    50% {
-        transform: scale(1.3);
-        text-shadow: 0 0 14px #4fd8ff, 0 0 28px #4fd8ff;
-    }
-    100% {
-        transform: scale(1);
-        text-shadow: 0 0 6px #4fd8ff, 0 0 12px #4fd8ff;
-    }
+    0% {
+        transform: scale(1);
+        text-shadow: 0 0 6px #4fd8ff, 0 0 12px #4fd8ff;
+    }
+    50% {
+        transform: scale(1.3);
+        text-shadow: 0 0 14px #4fd8ff, 0 0 28px #4fd8ff;
+    }
+    100% {
+        transform: scale(1);
+        text-shadow: 0 0 6px #4fd8ff, 0 0 12px #4fd8ff;
+    }
 }
 @keyframes floatBubble {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-6px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 .help-menu {
-    position: fixed;
-    bottom: 70px;
-    right: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 12px;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    z-index: 999;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
+    position: fixed;
+    bottom: 70px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
 }
 .help-menu.show {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
 }
 .help-menu-btn {
-    padding: 10px 14px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: background 0.2s ease, transform 0.2s ease;
+    padding: 10px 14px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 .help-menu-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
 }
 .help-menu-btn:active {
-    transform: scale(0.98);
+    transform: scale(0.98);
 }
 /* 📄 Стили для модального окна */
 .info-modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px);
-    padding: 20px;
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    padding: 20px;
 }
 .info-modal.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .info-modal-content {
-    background-color: rgba(25, 25, 25, 0.9);
-    color: #fff;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
-    position: relative;
-    animation: modalFadeIn 0.3s ease-out;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    max-height: 90vh;
-    overflow-y: auto;
+    background-color: rgba(25, 25, 25, 0.9);
+    color: #fff;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    animation: modalFadeIn 0.3s ease-out;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    max-height: 90vh;
+    overflow-y: auto;
 }
 .info-modal-content h3 {
-    font-size: 22px;
-    margin-bottom: 12px;
-    color: #00e6ff;
-    text-shadow: 0 0 8px rgba(0, 230, 255, 0.5);
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: #00e6ff;
+    text-shadow: 0 0 8px rgba(0, 230, 255, 0.5);
 }
 .info-modal-content p,
 .info-modal-content ul {
-    font-size: 15px;
-    line-height: 1.5;
-    text-align: left;
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: left;
 }
 .info-modal-content ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
 }
 .info-modal-content ul li::before {
-    content: "•";
-    color: #00e6ff;
-    font-size: 1.2em;
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
+    content: "•";
+    color: #00e6ff;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
 }
 .info-modal-close-btn {
-    color: #aaa;
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 32px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s ease, color 0.2s ease;
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 .info-modal-close-btn:hover,
 .info-modal-close-btn:focus {
-    color: #fff;
-    transform: rotate(90deg);
-    text-decoration: none;
+    color: #fff;
+    transform: rotate(90deg);
+    text-decoration: none;
 }
 @keyframes modalFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 /* Стили для пошаговой навигации */
 .info-modal-content .step-container {
-    padding: 0;
-    text-align: left;
+    padding: 0;
+    text-align: left;
 }
 .info-modal-content .step {
-    animation: fadeIn 0.5s ease-out forwards;
-    margin-bottom: 20px;
+    animation: fadeIn 0.5s ease-out forwards;
+    margin-bottom: 20px;
 }
 .info-modal-content .step.hidden {
-    display: none;
+    display: none;
 }
 .info-modal-content .step strong {
-    color: #00e6ff;
-    display: block;
-    font-size: 1.1em;
-    margin-bottom: 10px;
+    color: #00e6ff;
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 10px;
 }
 .info-modal-content .step img {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-    display: block;
-    margin: 15px auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .info-modal-content .step-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 10px;
 }
 .info-modal-content .step-buttons button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    flex: 1;
 }
 .info-modal-content .step-buttons .next-step-btn {
-    background-color: #0072ff;
-    color: #fff;
+    background-color: #0072ff;
+    color: #fff;
 }
 .info-modal-content .step-buttons .prev-step-btn {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .info-modal-content .step-buttons .close-modal-btn {
-    background-color: #ff4500;
-    color: #fff;
+    background-color: #ff4500;
+    color: #fff;
 }
 .info-modal-content .step-buttons button:active {
-    transform: scale(0.96);
+    transform: scale(0.96);
 }
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 @keyframes scroll-icons {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 3000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
-    align-items: center;
-    justify-content: center;
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
 }
 
 .modal.active {
-    display: flex;
+    display: flex;
 }
 
 .modal-content {
-    background-color: #2c2c2e;
-    color: #fff;
-    margin: auto;
-    padding: 30px;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 90%;
-    max-width: 380px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-    animation: modalPopUp 0.3s ease-out;
+    background-color: #2c2c2e;
+    color: #fff;
+    margin: auto;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    animation: modalPopUp 0.3s ease-out;
 }
 
 /* Новые стили для заголовка и описания */
 .modal-title {
-    font-size: 24px;
-    margin-bottom: 10px; /* Уменьшил отступ */
-    color: #00c6ff;
-    font-weight: 700; /* Сделал жирнее */
+    font-size: 24px;
+    margin-bottom: 10px; /* Уменьшил отступ */
+    color: #00c6ff;
+    font-weight: 700; /* Сделал жирнее */
 }
 
 .modal-description {
-    font-size: 15px;
-    line-height: 1.5;
-    color: #e0e0e0;
-    margin-bottom: 20px; /* Увеличил отступ */
+    font-size: 15px;
+    line-height: 1.5;
+    color: #e0e0e0;
+    margin-bottom: 20px; /* Увеличил отступ */
 }
 
 .modal-info {
-    font-size: 14px;
-    line-height: 1.4;
-    color: #ccc;
-    background-color: rgba(255, 255, 255, 0.05); /* Добавил легкий фон */
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 20px; /* Отступ до кнопок */
+    font-size: 14px;
+    line-height: 1.4;
+    color: #ccc;
+    background-color: rgba(255, 255, 255, 0.05); /* Добавил легкий фон */
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px; /* Отступ до кнопок */
 }
 
 .modal-info strong {
-    color: #ff4d4d;
+    color: #ff4d4d;
 }
 
 .modal-footer {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    margin-top: 15px; /* Уменьшил отступ */
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 15px; /* Уменьшил отступ */
 }
 
 .modal-btn {
-    flex: 1;
-    padding: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .modal-btn.cancel-btn {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .modal-btn.confirm-btn {
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    color: #fff;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: #fff;
 }
 
 .modal-btn:active {
-    transform: scale(0.98);
+    transform: scale(0.98);
 }
 
 .close-btn {
-    color: #aaa;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s ease, color 0.2s ease;
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .close-btn:hover {
-    color: #fff;
-    transform: rotate(90deg);
+    color: #fff;
+    transform: rotate(90deg);
 }
 
 @keyframes modalPopUp {
-    from {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 /* ===== Футер ===== */
 .site-footer {
-  width: 100%;
-  height: 36px;
-  background-color: rgba(0, 0, 0, 0.4); /* полупрозрачный тёмный фон */
-  backdrop-filter: blur(6px); /* мягкое размытие */
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 500;
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* тонкая светлая линия */
-  position: relative;
-  margin-top: -10px; /* можно регулировать выше/ниже */
+  width: 100%;
+  height: 36px;
+  background-color: rgba(0, 0, 0, 0.4); /* полупрозрачный тёмный фон */
+  backdrop-filter: blur(6px); /* мягкое размытие */
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* тонкая светлая линия */
+  position: relative;
+  margin-top: -10px; /* можно регулировать выше/ниже */
 }
