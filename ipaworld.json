@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Boom Castle",
+    "bundleId": "castle.heroes.tower.defense.kingdom.magic.battle.archer",
+    "version": "1.5.2",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/35/c9/5e/35c95e70-db4d-c7d9-a0d4-3fef74edccff/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+    "url": "https://vhistoretg.s3.eu-north-1.amazonaws.com/BOOM+Castle+_1.5.2_1752890545.ipa"
+  },
+  {
+    "name": "Zombie Infinity",
+    "bundleId": "jp.kamasu.oread",
+    "version": "1.9.1",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9f/f4/c3/9ff4c3aa-55ec-4e6d-9fd9-131a636921dd/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+    "url": "https://vhistoretg.s3.eu-north-1.amazonaws.com/Zombie+Infinity+_1.9.1_1752890971.ipa"
+  }
+]
